@@ -2,10 +2,18 @@
 
 A tic-tac-toe like multiplayer game
 
-only server available for now
-
 # Server
-to run server type in console:
-```dart
+run server type in console:
+```bash
 dart .\lib\server\server.dart
+```
+
+# Client
+run several clients:
+```bash
+flutter run -d windows
+```
+
+```bash
+flutter run -d chrome
 ```
