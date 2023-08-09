@@ -42,11 +42,11 @@ class ServerManager {
     bool canPlay = false;
     PlayerRole playerRole = PlayerRole.observer;
     if (connectedClients.length <= 2) {
+      canPlay = true;
       if (connectedClients.length == 1) {
         gameState.topPlayerId = clientId;
         playerRole = PlayerRole.topPlayer;
       } else if (connectedClients.length == 2) {
-        canPlay = true;
         gameState.bottomPlayerId = clientId;
         playerRole = PlayerRole.bottomPlayer;
       }
