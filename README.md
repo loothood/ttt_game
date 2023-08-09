@@ -17,3 +17,4 @@ flutter run -d windows
 ```bash
 flutter run -d chrome
 ```
+play
