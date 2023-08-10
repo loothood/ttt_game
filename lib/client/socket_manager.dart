@@ -57,6 +57,9 @@ class SocketManager {
     if (message.type == MessageType.gameStatus) {
       myGame.clientBoard.board = message.gameStatus!.board;
       myGame.winner = message.gameStatus!.winnerId;
+      if (myGame.winner != null) {
+        myGame.canPlay = false;
+      }
     } else if (message.type == MessageType.welcome) {
       myGame.clientId = message.welcomeMessage!.clientId;
       myGame.canPlay = message.welcomeMessage!.canPlay;

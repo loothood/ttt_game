@@ -62,10 +62,8 @@ class MyGame extends FlameGame with TapDetector {
     if (winner != null) {
       if (winner == clientId) {
         printText(canvas, 'You WIN!', Offset(size.x / 2, size.y / 2));
-        canPlay = false;
       } else {
         printText(canvas, 'You LOST!', Offset(size.x / 2, size.y / 2));
-        canPlay = false;
       }
     }
   }
