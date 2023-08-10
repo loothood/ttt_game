@@ -14,7 +14,7 @@ import 'client_constants.dart';
 import 'socket_manager.dart';
 import 'ui/client_board.dart';
 
-class MyGame extends FlameGame with MultiTouchTapDetector {
+class MyGame extends FlameGame with TapDetector {
   ClientBoard clientBoard = ClientBoard();
   PlayerRole playerRole = PlayerRole.observer;
   Figure figureInHand = ClientConstants.noneFigure;
@@ -40,8 +40,8 @@ class MyGame extends FlameGame with MultiTouchTapDetector {
   }
 
   @override
-  void onTapDown(int pointerId, TapDownInfo info) {
-    super.onTapDown(pointerId, info);
+  void onTapDown(TapDownInfo info) {
+    super.onTapDown(info);
     if (playerRole != PlayerRole.observer && canPlay) {
       final int clickedCellId =
           clientBoard.cellIdByCoordinates(info.eventPosition.game);
