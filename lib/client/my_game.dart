@@ -43,14 +43,18 @@ class MyGame extends FlameGame with TapDetector {
   void onTapDown(TapDownInfo info) {
     super.onTapDown(info);
     if (playerRole != PlayerRole.observer && canPlay) {
-      final int clickedCellId =
-          clientBoard.cellIdByCoordinates(info.eventPosition.game);
-      final bool wrongCellId = clickedCellAction(clickedCellId);
-      if (wrongCellId) {
-        return;
-      }
-      if (figureInHand.figureType != FigureType.none) {
-        tryPutFigure(clickedCellId);
+      if (info.eventPosition.game.x >= clientBoard.grid.xStartOffset &&
+          info.eventPosition.game.x <=
+              clientBoard.grid.xStartOffset + clientBoard.grid.cellSize * 3) {
+        final int clickedCellId =
+            clientBoard.cellIdByCoordinates(info.eventPosition.game);
+        final bool wrongCellId = clickedCellAction(clickedCellId);
+        if (wrongCellId) {
+          return;
+        }
+        if (figureInHand.figureType != FigureType.none) {
+          tryPutFigure(clickedCellId);
+        }
       }
     }
   }
